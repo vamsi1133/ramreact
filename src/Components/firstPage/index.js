@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const FirstPage = (props) => {
-  //   const name = props.name;
   const id = 2;
   return (
     <>
