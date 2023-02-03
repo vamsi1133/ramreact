@@ -5,13 +5,15 @@ import FirstPage from "./Components/firstPage";
 function App() {
   const [count, setCount] = useState(0);
   const [age, setAge] = useState(25);
-  const addRef = useRef();
+  const addRef = useRef(null);
+  const prevData = useRef("no data");
 
   useEffect(() => {
     setAge((prev) => prev + 1);
   }, [count]);
 
   const increment = () => {
+    prevData.current = { age: age, count: count };
     setCount((prev) => prev + 1);
   };
 
@@ -20,8 +22,13 @@ function App() {
     console.log(message + " -" + value);
   };
 
+  const clickRef = (clr) => {
+    addRef.current.style.background = clr;
+    console.log(prevData.current);
+  };
+
   return (
-    <div className="App">
+    <div>
       <div ref={addRef}>MY Address</div>
       <FirstPage name={age} count={count} />
       <button onClick={increment}>Increment</button>
@@ -31,6 +38,8 @@ function App() {
         placeholder="username"
         onChange={(e) => display(e, "hello")}
       />
+      <br />
+      <button onClick={() => clickRef("green")}> Click ref</button>
     </div>
   );
 }
