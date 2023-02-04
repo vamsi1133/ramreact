@@ -1,0 +1,10 @@
+.firstpage {
+  background-color: rgb(199, 205, 255);
+  padding: 5%;
+}
+
+.firstpage > em {
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  color: cadetblue;
+}
