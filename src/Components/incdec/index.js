@@ -1,6 +1,6 @@
 import React from "react";
 
-const INCDEC = () => {
+const INCDEC = (props) => {
   const [count, setCount] = useState(0);
   const [age, setAge] = useState(25);
   const addRef = useRef(null);
@@ -9,6 +9,7 @@ const INCDEC = () => {
   useEffect(() => {
     setAge((prev) => prev + 1);
   }, [count]);
+
   const increment = () => {
     prevData.current = { age: age, count: count };
     setCount((prev) => prev + 1);

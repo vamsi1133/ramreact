@@ -14,12 +14,13 @@ class ClassDemo extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps, nextState, this.state);
     if (this.state.diceNo !== nextState.diceNo) return true;
     else return false;
   }
 
   componentDidUpdate(prevProps, prevState) {
-    alert("component updated");
+    console.log("component updated", prevState, prevProps, this.state);
   }
 
   componentWillUnmount() {
@@ -35,6 +36,7 @@ class ClassDemo extends Component {
     return (
       <>
         <div className="dice-container">
+          {this.props.name}
           <div className="dice">
             <div className="face">{this.state.diceNo}</div>
           </div>

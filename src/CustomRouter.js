@@ -8,7 +8,7 @@ const CustomRouter = (props) => {
   const routes = [
     { path: "/", element: <FirstPage /> },
     { path: "/login", element: <Login /> },
-    { path: "/class", element: <ClassDemo /> },
+    { path: "/class", element: <ClassDemo name={"roll the dice game"} /> },
   ];
   return (
     <>
