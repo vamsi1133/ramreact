@@ -60,6 +60,11 @@ const Login = (props) => {
       const data = await axios.post("http://localhost:8000/login", credential);
       if (data.status === 200) {
         router("/");
+        localStorage.setItem("loggedIn", true);
+        setTimeout(() => {
+          localStorage.setItem("loggedIn", false);
+          router("/login");
+        }, 500000);
       }
     } catch (e) {
       alert(e.response.data.message);

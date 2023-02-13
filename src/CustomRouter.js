@@ -12,6 +12,7 @@ const CustomRouter = (props) => {
     { path: "/class", element: <ClassDemo name={"roll the dice game"} /> },
     { path: "/profiles", element: <Profiles /> },
   ];
+  
   return (
     <>
       <Router>

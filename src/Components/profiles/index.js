@@ -2,7 +2,8 @@ import { TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import IDCard from "./IDCard";
+import LoginWrapper from "../HOC";
+const IDCard = React.lazy(() => import("./IDCard"));
 
 function Profiles(props) {
   const [userData, setUserData] = useState([]);
@@ -32,11 +33,11 @@ function Profiles(props) {
           }}
         />
         {userData.map((val) => {
-          return <IDCard {...val} />;
+          return <IDCard key={val.id} {...val} />;
         })}
       </Container>
     </>
   );
 }
 
-export default Profiles;
+export default LoginWrapper(Profiles);

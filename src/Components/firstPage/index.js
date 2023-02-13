@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LoginWrapper from "../HOC";
 import ABC from "./abc";
 import "./Firstpage.css";
 
@@ -44,4 +45,4 @@ const FirstPage = (props) => {
   );
 };
 
-export default FirstPage;
+export default LoginWrapper(FirstPage);
