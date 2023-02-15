@@ -1,3 +1,4 @@
+import { Input, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginWrapper from "../HOC";
@@ -6,6 +7,8 @@ import "./Firstpage.css";
 
 const FirstPage = (props) => {
   const [showABC, setShowABC] = useState(false);
+  const [info, setInfo] = useState("hello");
+
   const id = 2;
   const h2color = {
     fontWeight: "bold",
@@ -14,14 +17,12 @@ const FirstPage = (props) => {
   };
 
   const handleDisplay = () => {
-    if (showABC) {
-      setShowABC((prev) => !prev);
-    } else setTimeout(() => setShowABC((prev) => !prev), 3000);
+    setShowABC((prev) => !prev);
   };
 
   const DisplayElement = () => {
     if (showABC) {
-      return <ABC />;
+      return <ABC data={info} />;
     }
   };
 
@@ -32,9 +33,11 @@ const FirstPage = (props) => {
         <h2 style={h2color}>user id: {id} </h2>
         <em>name: {props.name}</em>
         <br />
-        <b>count: {props.count}</b>
+        <Input value={info} onChange={(e) => setInfo(e.target.value)} />
       </div>
       <Link to={"/profiles"}>Go to Profiles</Link>
+      <br />
+      <Link to={"/redux"}>Go to Redux</Link>
       <br />
       {/* {showABC ? <ABC /> : <>123</>} */}
       {/* {showABC && <ABC />} */}
