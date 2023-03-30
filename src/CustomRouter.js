@@ -5,6 +5,7 @@ import FirstPage from "./Components/firstPage";
 import ClassDemo from "./Components/classDemo";
 import Profiles from "./Components/profiles";
 import ReduxDemo from "./Components/reduxdemo";
+import Score from "./Components/userprofie";
 
 const CustomRouter = (props) => {
   const routes = [
@@ -13,6 +14,7 @@ const CustomRouter = (props) => {
     { path: "/class", element: <ClassDemo name={"roll the dice game"} /> },
     { path: "/profiles", element: <Profiles /> },
     { path: "/redux", element: <ReduxDemo /> },
+    { path: "/score", element: <Score /> },
   ];
 
   return (

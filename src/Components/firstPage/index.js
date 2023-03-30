@@ -1,5 +1,6 @@
 import { Input, TextField } from "@mui/material";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoginWrapper from "../HOC";
 import ABC from "./abc";
@@ -8,6 +9,7 @@ import "./Firstpage.css";
 const FirstPage = (props) => {
   const [showABC, setShowABC] = useState(false);
   const [info, setInfo] = useState("hello");
+  const scores = useSelector(({ score }) => score.scores) || [];
 
   const id = 2;
   const h2color = {
@@ -39,9 +41,18 @@ const FirstPage = (props) => {
       <br />
       <Link to={"/redux"}>Go to Redux</Link>
       <br />
+      <Link to={"/score"}>Go to SCORE</Link>
+      <br />
       {/* {showABC ? <ABC /> : <>123</>} */}
       {/* {showABC && <ABC />} */}
       {/* <DisplayElement /> */}
+      {scores.map((val) => {
+        return (
+          <h1>
+            {val.team} :{val.score}
+          </h1>
+        );
+      })}
       {DisplayElement()}
       <button onClick={handleDisplay}>Show ABC</button>
     </>
